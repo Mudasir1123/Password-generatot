@@ -14,45 +14,79 @@ st.set_page_config(page_title="🔐 AI Password Strength Checker", page_icon="�
 
 custom_css = """
 <style>
+/* 🌌 Dark Theme with Neon Accents */
+body, .stApp {
+    background: linear-gradient(135deg, #D3A4D1, #6E3B6F);
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+}
 
-
-/* Style Headers */
+/* 💡 Headers with Neon Glow */
 h1, h2, h3 {
-    color: #FFA500;
+    color: #FF6EC7;
     text-align: center;
+    font-weight: 600;
+    text-shadow: 0 0 10px #FF6EC7;
 }
 
-/* Customize buttons */
-button {
-    background-color: #FFA500 !important;
-    color: black !important;
+/* 🔘 Buttons with Neon Effect */
+.stButton button {
+    background: linear-gradient(135deg, #00E5FF, #FF6EC7) !important;
+    color: #1F1C2C !important;
     border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.5);
 }
 
-/* Improve input fields */
-input {
-    border-radius: 8px !important;
+.stButton button:hover {
+    background: linear-gradient(135deg, #FF6EC7, #00E5FF) !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 110, 199, 0.7);
 }
 
-/* Make password display better */
-.stTextInput {
-    color: white !important;
+/* 📦 Input Fields with Glass Effect */
+.stTextInput input {
+    border: 1px solid #00E5FF;
+    border-radius: 8px;
+    background-color: rgba(31, 28, 44, 0.5);
+    color: #E0E0E0;
+    padding: 8px;
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+    backdrop-filter: blur(10px);
 }
 
-/* Spinner animation */
-[data-testid="stSpinner"] {
-    color: #FFA500 !important;
-}
-
-/* Improve password result box */
+/* ⚠ Alerts with Glassmorphism */
 .stAlert {
+    border-left: 5px solid #FF6EC7;
+    background-color: rgba(31, 28, 44, 0.7);
+    color: #E0E0E0;
+    box-shadow: 0 0 15px rgba(255, 110, 199, 0.3);
+    backdrop-filter: blur(10px);
+}
 
-    border-left: 5px solid #FFA500;
-    color: white;
+/* 🔄 Spinner with Neon Effect */
+[data-testid="stSpinner"] {
+    color: #FF6EC7 !important;
+    text-shadow: 0 0 10px #FF6EC7;
+}]
+
+/* 🟢 Success Alerts */
+div.stAlert.stSuccess {
+    background: linear-gradient(135deg, #6A4C93, #4E3C77) !important;
+    color: #F5F5F5 !important;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2) !important;
 }
 </style>
 """
+
+# Apply the CSS to your Streamlit app
 st.markdown(custom_css, unsafe_allow_html=True)
+
+st.markdown(custom_css, unsafe_allow_html=True)
+
+
 
 # Initialize Google Gemini AI API
 genai.configure(api_key=GENAI_API_KEY)
